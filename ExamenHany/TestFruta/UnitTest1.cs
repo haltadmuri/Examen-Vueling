@@ -16,8 +16,8 @@ namespace TestFruta
         [TestCleanup]
         public void Cleanup()
         {
-            _factory.VerifyAllExpectationsHaveBeenMet();
-            _factory.ClearExpectations();
+            //_factory.VerifyAllExpectationsHaveBeenMet();
+            //_factory.ClearExpectations();
         }
 
 
@@ -36,11 +36,11 @@ namespace TestFruta
             //repository.Expects.One.MethodWith(c => c.Get(1)).WillReturn(new Product() { Name ="Antonio"});
             //unitOfWork.Expects.One.Method(c => c.Dispose());
 
-            // Act
+            // //Act
             //var result = ((productController.Index() as ViewResult).Model) as List<Product>;
             //productController.Edit(1);
             //productController.Dispose();
-            // Assert
+            // //Assert
             //Assert.AreEqual(1, result.Count);
             //Assert.AreEqual("pera", result[0].Name);
         }

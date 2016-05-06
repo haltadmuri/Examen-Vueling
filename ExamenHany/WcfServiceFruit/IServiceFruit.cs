@@ -15,7 +15,7 @@ namespace WcfServiceFruit
     {
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "/GetArticleList")]
-        IEnumerable<Product> GetArticleList();
+        IEnumerable<Product> GetProductList();
 
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "/GetArticle/{id}")]

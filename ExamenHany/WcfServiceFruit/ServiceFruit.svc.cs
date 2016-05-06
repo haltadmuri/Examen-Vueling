@@ -44,5 +44,10 @@ namespace WcfServiceFruit
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Domain.Product> GetProductList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
