@@ -24,17 +24,17 @@ namespace TestFruta
         [TestMethod]
         public void NumberOfProductsEqualsOne()
         {
-            // Arrange
-            var repository = _factory.CreateMock<IRepositoryProduct>();
-            var unitOfWork = _factory.CreateMock<IUnitOfWork>();
-            var productController = new ProductController(repository.MockObject, unitOfWork.MockObject);
+            //// Arrange
+            //var repository = _factory.CreateMock<IRepositoryProduct>();
+            //var unitOfWork = _factory.CreateMock<IUnitOfWork>();
+            //var productController = new ProductController(repository.MockObject, unitOfWork.MockObject);
             
-            var products = new HashSet<Product>() {
-                new Product() {Name = "pera"}
-            };
-            repository.Expects.One.Method(c => c.GetAll()).WillReturn(products);
-            repository.Expects.One.MethodWith(c => c.Get(1)).WillReturn(new Product() { Name ="Antonio"});
-            unitOfWork.Expects.One.Method(c => c.Dispose());
+            //var products = new HashSet<Product>() {
+            //    new Product() {Name = "pera"}
+            //};
+            //repository.Expects.One.Method(c => c.GetAll()).WillReturn(products);
+            //repository.Expects.One.MethodWith(c => c.Get(1)).WillReturn(new Product() { Name ="Antonio"});
+            //unitOfWork.Expects.One.Method(c => c.Dispose());
 
             // Act
             //var result = ((productController.Index() as ViewResult).Model) as List<Product>;

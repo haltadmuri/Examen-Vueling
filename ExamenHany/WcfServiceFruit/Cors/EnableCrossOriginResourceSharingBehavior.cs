@@ -45,5 +45,4 @@ namespace WcfServiceFruit.Cors
             return new EnableCrossOriginResourceSharingBehavior();
         }
     }
-    }
 }

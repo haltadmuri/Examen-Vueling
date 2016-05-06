@@ -14,5 +14,35 @@ namespace WcfServiceFruit
         public void DoWork()
         {
         }
+
+        public IEnumerable<Domain.Product> GetArticleList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Domain.Product GetArticle(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Domain.Product Add(string name, string price)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Domain.Invoice> GetDetalleVentaList()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Domain.Invoice AddDetalleVentaList(string IdProduct, string Quantity, string IdTicket)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Domain.Ticket AddVentaList(string Date, string Total)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

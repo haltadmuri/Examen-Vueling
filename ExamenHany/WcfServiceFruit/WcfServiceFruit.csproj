@@ -65,7 +65,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ProductService.svc" />
     <Content Include="Service1.svc" />
     <Content Include="ServiceFruit.svc" />
     <Content Include="Web.config" />
@@ -73,11 +72,7 @@
   <ItemGroup>
     <Compile Include="Cors\CustomHeaderMessageInspector.cs" />
     <Compile Include="Cors\EnableCrossOriginResourceSharingBehavior.cs" />
-    <Compile Include="ServiceFruit.cs" />
     <Compile Include="IServiceFruit.cs" />
-    <Compile Include="ProductService.svc.cs">
-      <DependentUpon>ProductService.svc</DependentUpon>
-    </Compile>
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>
