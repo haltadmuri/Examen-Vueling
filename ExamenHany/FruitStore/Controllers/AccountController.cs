@@ -10,6 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using FruitStore.Filters;
 using FruitStore.Models;
+using Domain;
 
 namespace FruitStore.Controllers
 {
