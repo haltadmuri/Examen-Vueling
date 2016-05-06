@@ -9,17 +9,6 @@ using System.Web.Security;
 
 namespace FruitStore.Models
 {
-    public class UsersContext : DbContext
-    {
-        public UsersContext()
-            : base("DefaultConnection")
-        {
-        }
-
-        public DbSet<UserProfile> UserProfiles { get; set; }
-
-        public DbSet<Product> Products { get; set; }
-    }
 
     public class RegisterExternalLoginModel
     {

@@ -8,8 +8,9 @@ namespace Domain
 {
     public interface IRepositoryProduct
     {
-        IEnumerable<Product> GetProductList();
-        Product GetProduct(int id);
+        Product Get(int id);
+        IEnumerable<Product> GetAll();
+        
         Product Add(Product product);
         void Update(Product product);
         void Delete(Product product);

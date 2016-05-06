@@ -7,19 +7,33 @@ using System.Web;
 using System.Web.Mvc;
 using FruitStore.Models;
 using Domain;
+using Infraestructure;
 
 namespace FruitStore.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : ControlerBase
     {
-        private UsersContext db = new UsersContext();
+        readonly IRepositoryProduct _repository;
+
+        public ProductController(IRepositoryProduct repository, IUnitOfWork unitOfWork)
+            : base(unitOfWork)
+        {
+            if (null == repository)
+            {
+                throw new ArgumentNullException("repository");
+            }
+
+            _repository = repository;
+
+        }
+       
 
         //
         // GET: /Product/
 
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            return View(_repository.GetAll().ToList());
         }
 
         //
@@ -27,7 +41,7 @@ namespace FruitStore.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Product product = db.Products.Find(id);
+            Product product = _repository.Get(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -52,8 +66,8 @@ namespace FruitStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                _repository.Add(product);
+                Save();
                 return RedirectToAction("Index");
             }
 
@@ -65,7 +79,7 @@ namespace FruitStore.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Product product = db.Products.Find(id);
+            Product product = _repository.Get(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -82,8 +96,8 @@ namespace FruitStore.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.Update(product);
+                Save();
                 return RedirectToAction("Index");
             }
             return View(product);
@@ -94,7 +108,7 @@ namespace FruitStore.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Product product = db.Products.Find(id);
+            Product product = _repository.Get(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -109,16 +123,11 @@ namespace FruitStore.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            Product product = _repository.Get(id);
+            _repository.Delete(product);
+            Save();
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
-        }
     }
 }

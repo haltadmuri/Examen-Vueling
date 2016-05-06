@@ -5,6 +5,7 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using FruitStore.Models;
+using Infraestructure;
 
 namespace FruitStore.Filters
 {

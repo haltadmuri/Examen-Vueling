@@ -11,6 +11,7 @@ using WebMatrix.WebData;
 using FruitStore.Filters;
 using FruitStore.Models;
 using Domain;
+using Infraestructure;
 
 namespace FruitStore.Controllers
 {
